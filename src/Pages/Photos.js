@@ -9,11 +9,11 @@ export default function Photos() {
     const newAllPhotosArr = allPhotos.map((photo, index) => (
         <Image 
             key={photo.id} 
-            img={photo.url} 
+            img={photo} 
             className={getClass(index)}
         />
     ))
-
+    
     return (
         <main className="photos">
             {newAllPhotosArr}
