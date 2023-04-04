@@ -6,8 +6,8 @@ import {getClass} from "../utils"
 export default function Photos() {
     const {allPhotos} = useContext(Context)
 
-    const newAllPhotosArr = allPhotos.map((photos, index) => (
-        <Image key={photos.id} img={photos.url} className={getClass(index)}/>
+    const newAllPhotosArr = allPhotos.map((photo, index) => (
+        <Image key={photo.id} img={photo.url} className={getClass(index)}/>
     ))
 
     return (
