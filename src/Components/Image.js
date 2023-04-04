@@ -9,6 +9,8 @@ export default function Image({className, img}) {
         <i className="ri-heart-line favorite" onClick={() => toggleFavorite(img.id)}></i>
     
     const cartIcon = hovered && <i className="ri-add-circle-line cart"></i>
+    
+    const filledHeartIcon = <i className="ri-heart-fill favorite" onClick={() => toggleFavorite(img.id)}></i>
 
     return (
         <div 
@@ -17,7 +19,7 @@ export default function Image({className, img}) {
             className={`${className} image-container`}
         >
             <img src={img.url} className="image-grid"/>
-            {heartIcon}
+            {img.isFavorite ? filledHeartIcon : heartIcon}
             {cartIcon}
         </div>
     )
