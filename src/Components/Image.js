@@ -8,7 +8,7 @@ export default function Image({className, img}) {
     const heartIcon = hovered && 
         <i className="ri-heart-line favorite" onClick={() => toggleFavorite(img.id)}></i>
     
-        const cartIcon = hovered && <i className="ri-add-circle-line cart"></i>
+    const cartIcon = hovered && <i className="ri-add-circle-line cart"></i>
 
     return (
         <div 
