@@ -1,19 +1,22 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
+import { Context } from "../Context"
 
-export default function Image(props) {
+export default function Image({className, img}) {
     const [hovered, setHovered] = useState(false)
+    const {toggleFavorite} = useContext(Context)
 
-    const heartIcon = hovered && <i className="ri-heart-line favorite"></i>
-    const cartIcon = hovered && <i className="ri-add-circle-line cart"></i>
+    const heartIcon = hovered && 
+        <i className="ri-heart-line favorite" onClick={() => toggleFavorite(img.id)}></i>
+    
+        const cartIcon = hovered && <i className="ri-add-circle-line cart"></i>
 
     return (
-        <div className={`${props.className} image-container`}>
-            <img 
-                src={props.img} 
-                className="image-grid"
-                onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
-            />
+        <div 
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)} 
+            className={`${className} image-container`}
+        >
+            <img src={img.url} className="image-grid"/>
             {heartIcon}
             {cartIcon}
         </div>
