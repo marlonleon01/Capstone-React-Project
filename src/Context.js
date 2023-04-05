@@ -17,6 +17,10 @@ function ContextProvider(props) {
         setCartItems(prevItems => [...prevItems, imgObj])
     }
 
+    function removeImageFromCart(id) {
+        setCartItems(prevItems => prevItems.filter(item => item.id !== id))
+    }
+
     function toggleFavorite(id) {
         const updatedArr = allPhotos.map(photo => {
             if (photo.id === id) {
@@ -31,7 +35,7 @@ function ContextProvider(props) {
     }
 
     return (
-        <Context.Provider value={{allPhotos, toggleFavorite, addImageToCart, cartItems}}>
+        <Context.Provider value={{allPhotos, toggleFavorite, addImageToCart, cartItems, removeImageFromCart}}>
             {props.children}
         </Context.Provider>
     )
