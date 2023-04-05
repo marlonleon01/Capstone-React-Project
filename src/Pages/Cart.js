@@ -4,7 +4,7 @@ import CartItem from "../Components/CartItem"
 
 export default function Cart() {
     const {cartItems, setCartItems} = useContext(Context)
-    const [orderPlaced, setOrderPlaced] = useState(false)
+    const [orderPlacedText, setOrderPlacedText] = useState("Place Order")
     const totalCost = 5.99 * cartItems.length
     const totalCostDisplay = totalCost.toLocaleString("en-US", {style: "currency", currency: "USD"})
 
@@ -13,11 +13,11 @@ export default function Cart() {
     ))
 
     function placeOrder() {
-        setOrderPlaced(true)
+        setOrderPlacedText("Ordering...")
         setTimeout(() => {
             console.log("Order Placed")
             setCartItems([])
-            setOrderPlaced(false)
+            setOrderPlacedText("Place Order")
         }, 3000)
     }
 
@@ -28,7 +28,7 @@ export default function Cart() {
             <p className="total-cost">Total: {totalCostDisplay}</p>
             <div className="order-button">
                 <button onClick={() => placeOrder()}>
-                    {orderPlaced? "Ordering..." : "Place Order"}
+                    {orderPlacedText}
                 </button>
             </div>
         </main>
