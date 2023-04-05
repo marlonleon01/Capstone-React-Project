@@ -28,7 +28,7 @@ export default function Cart() {
             <p className="total-cost">Total: {totalCostDisplay}</p>
             <div className="order-button">
                 <button onClick={() => placeOrder()}>
-                    {cartItems.length > 0 ? orderPlacedText : "Add items"}
+                    {cartItems.length > 0 ? orderPlacedText : "You have no items in cart"}
                 </button>
             </div>
         </main>
