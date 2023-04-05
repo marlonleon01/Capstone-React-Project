@@ -20,8 +20,6 @@ function ContextProvider(props) {
     function toggleFavorite(id) {
         const updatedArr = allPhotos.map(photo => {
             if (photo.id === id) {
-                console.log(id)
-                console.log(!photo.isFavorite)
                 return {
                     ...photo,
                     isFavorite: !photo.isFavorite
@@ -33,7 +31,7 @@ function ContextProvider(props) {
     }
 
     return (
-        <Context.Provider value={{allPhotos, toggleFavorite, addImageToCart}}>
+        <Context.Provider value={{allPhotos, toggleFavorite, addImageToCart, cartItems}}>
             {props.children}
         </Context.Provider>
     )
