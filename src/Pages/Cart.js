@@ -15,6 +15,7 @@ export default function Cart() {
     function placeOrder() {
         setOrderPlaced(true)
         setTimeout(() => {
+            console.log("Order Placed")
             setCartItems([])
             setOrderPlaced(false)
         }, 3000)
