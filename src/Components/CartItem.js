@@ -1,9 +1,11 @@
 import { useContext, useState } from "react"
+import PropTypes from "prop-types"
 import { Context } from "../Context"
+import useHover from "../hooks/useHover"
 
 export default function CartItem({item}) {
     const {removeImageFromCart} = useContext(Context)
-    const [hovered, setHovered] = useState(false)
+    const [hovered, ref] = useHover()
     
     function trashIcon() {
         if (hovered) {
@@ -18,8 +20,7 @@ export default function CartItem({item}) {
             <i 
                 className={trashIcon()} 
                 onClick={() => removeImageFromCart(item.id)}
-                onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
+                ref={ref}
             ></i>
             <img src={item.url} width="130px" />
             <p>$5.99</p>
