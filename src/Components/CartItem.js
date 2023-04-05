@@ -26,3 +26,9 @@ export default function CartItem({item}) {
         </div>
     )
 }
+
+CartItem.propTypes = {
+    item: PropTypes.shape({
+        url: PropTypes.string.isRequired
+    })
+}
