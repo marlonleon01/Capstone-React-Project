@@ -14,8 +14,7 @@
 -Open terminal  
 -Clone the repo with: $ git clone {url}  
 -cd into the folder  
--type: $ npm install  
--then follow from "Getting Started with Create React App"  
+-type: $ npm install     
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
